@@ -19,7 +19,7 @@ galleryItems.forEach((image) => {
 list.addEventListener("click", imageModal);
 
 function imageModal(event) {
-    event.prevetDefault();
+    event.preventDefault();
     if (event.target.nodeName !== "IMG") {
         return;
     }else
@@ -29,9 +29,12 @@ function imageModal(event) {
     `);
 
         instance.show();
+
+    document.addEventListener("keydown", function escapeKey(event) {
+    if (event.key === "Escape") {
+      instance.close();
+    }
+  });
         
 }return;
 }
-
-
-
